@@ -89,22 +89,24 @@
               if (mdp == pw[e].mdp && nickname == pw[e].nom){
                 good = true
               } else {
-                mauvais.textContent = "Mauvais mot de passe";
                 submit.style.backgroundColor = "rgb(15, 255, 63)";
                 submit.style.borderColor = "rgb(11, 171, 43)";
                 submit.disabled = false;
-
+        
               }
             }
+          
         }, 1000);
           if (good) {
             alert('c bon')
             myName = nickname
+            
             let storedName = nickname.textContent
             localStorage.setItem("nom", myName)
             window.location.href = "index.html";
           } else  {
             console.log("pas bon")
+            mauvais.textContent = "Mauvais mot de passe";
           }
         }
       
