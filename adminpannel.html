@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <button>clique pour enlever une ligne</button>
+    <a href="connexion.html">clique ici</a>
+    <script>
+      const pw = JSON.parse(localStorage.getItem("pw"));
+      let enlever = document.querySelector("button");
+      alert(pw);
+      function enleve() {
+        pw.pop();
+        localStorage.setItem("pw", JSON.stringify(pw));
+        console.log(pw);
+      }
+      enlever.addEventListener("click", function () {
+        enleve();
+      });
+    </script>
+  </body>
+</html>

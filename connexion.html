@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rentrer le bon mot passe</title>
+  </head>
+  <body>
+    <div class="btns">
+      <div class="mvs"></div>
+      <ul>
+       <input type="text" class="case" onkeydown="if(event.keyCode==32) return false;" maxlength="16" />
+      </ul>
+      <ul>
+        <input type="password" class="password" onkeydown="if(event.keyCode==32) return false;"/>
+      </ul>
+      <ul>
+        <button class="bouton">Se connecter</button>
+      </ul>
+      <ul>
+        <a href="inscription.html" class="link" style="font-family: sans-serif; text-decoration: none; color: black;">S'inscrire</a>
+      </ul>
+    </div>
+  </body>
+    <style>
+      .mvs {
+        color: red;
+        font-family: sans-serif;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        line-height: 4;
+      }
+      .btns{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        
+      }
+      .password {
+        background-color: rgb(158, 158, 158);
+        padding: 1rem 1rem;
+        font-size: 2rem;
+        border: 3px solid rgb(129, 129, 129);
+        border-radius: 9px;
+      }
+      .case{
+        background-color: rgb(158, 158, 158);
+        padding: 1rem 1rem;
+        font-size: 2rem;
+        border: 3px solid rgb(129, 129, 129);
+        border-radius: 9px;
+      }
+      .bouton {
+        background-color: rgb(15, 255, 63);
+        padding: 1rem 2rem;
+        font-size: 2.5rem;
+        border: 5px dashed rgb(11, 171, 43);
+        border-radius: 19px;
+      }
+      .link {
+        background-color: rgb(15, 19, 255);
+        padding: 1rem 2rem;
+        font-size: 2.5rem;
+        border: 5px dashed rgb(11, 11, 171);
+        border-radius: 19px;
+      }
+    </style>
+    <script>
+      let submit = document.querySelector("button");
+      let mauvais = document.querySelector(".mvs");
+      let good=false
+
+      let miss = 0;
+      let myName = "sans nom"
+      function test(){
+        const pw = JSON.parse(localStorage.getItem('pw')) || [];
+        let nickname = document.querySelector(".case").value;
+        let mdp = document.querySelector(".password").value;
+        console.log(mdp)
+        mauvais.textContent = "...";
+        submit.style.backgroundColor = "rgb(158, 158, 158)";
+        submit.style.borderColor = "rgb(148, 148, 148)";
+        submit.disabled = true;
+        good = false
+        setTimeout(() => {
+            for (let e= 0; e < pw.length; e++ ) {
+              if (mdp == pw[e].mdp && nickname == pw[e].nom){
+                good = true
+              } else {
+                mauvais.textContent = "Mauvais mot de passe";
+                submit.style.backgroundColor = "rgb(15, 255, 63)";
+                submit.style.borderColor = "rgb(11, 171, 43)";
+                submit.disabled = false;
+
+              }
+            }
+        }, 1000);
+          if (good) {
+            alert('c bon')
+            myName = nickname
+            let storedName = nickname.textContent
+            localStorage.setItem("nom", myName)
+            window.location.href = "index.html";
+          } else  {
+            console.log("pas bon")
+          }
+        }
+      
+      function pass() {
+        const pw = JSON.parse(localStorage.getItem('pw'));
+        let mdp = document.querySelector(".password").value;
+        mauvais.textContent = "...";
+        submit.style.backgroundColor = "rgb(158, 158, 158)";
+        submit.style.borderColor = "rgb(148, 148, 148)";
+        submit.disabled = true;
+        setTimeout(() => {
+          submit.disabled = false;
+          if (mdp !== "a") {
+            miss = miss + 1;
+            mauvais.textContent = "Mauvais mot de passe";
+            submit.style.backgroundColor = "rgb(15, 255, 63)";
+            submit.style.borderColor = "rgb(11, 171, 43)";
+          } else {
+            myName = nickname.value
+            let storedName = nickname.textContent
+            localStorage.setItem("nom", myName)
+            window.location.href = "index.html";
+          }
+        }, 1000);
+      }
+      submit.addEventListener("click", function () {
+        test();
+      });
+    </script>
+  </body>
+</html>

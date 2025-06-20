@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div>baballe ?</div>
+    <canvas id="canv" width="400" height="400"></canvas>
+
+    <style>
+      canvas {
+        width: 25rem;
+        height: 25rem;
+        border: 5px solid black;
+      }
+    </style>
+    <script>
+      // Variables pour la position et déplacement
+      let x = 50;
+      let y = 50;
+      let dx = 2;
+      let dy = 2;
+
+      // Récupérer le canvas et son contexte
+      const canvas = document.getElementById("canv");
+      const ctx = canvas.getContext("2d");
+
+      // Fonction de dessin du cercle
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.arc(x, y, 15, 0, Math.PI * 2);
+        ctx.fillStyle = "#0095DD";
+        ctx.fill();
+        ctx.closePath();
+        x += dx;
+        y += dy;
+        if y > canvas.width
+        requestAnimationFrame(draw);
+      }
+
+      // Écouteur d'événement clic (sur la fenêtre ou le canvas)
+      window.addEventListener("click", draw);
+    </script>
+  </body>
+</html>
