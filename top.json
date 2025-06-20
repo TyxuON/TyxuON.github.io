@@ -1,0 +1,12 @@
+[
+  {"nom": "Jannik Sinner", "nationalite": "Italie", "classement": 1},
+  {"nom": "Carlos Alcaraz", "nationalite": "Espagne", "classement": 2},
+  {"nom": "Alexander Zverev", "nationalite": "Allemagne", "classement": 3},
+  {"nom": "Taylor Fritz", "nationalite": "États-Unis", "classement": 4},
+  {"nom": "Casper Ruud", "nationalite": "Norvège", "classement": 5},
+  {"nom": "Daniil Medvedev", "nationalite": "Russie", "classement": 6},
+  {"nom": "Novak Djokovic", "nationalite": "Serbie", "classement": 7},
+  {"nom": "Alex de Minaur", "nationalite": "Australie", "classement": 8},
+  {"nom": "Andrey Rublev", "nationalite": "Russie", "classement": 9},
+  {"nom": "Tommy Paul", "nationalite": "États-Unis", "classement": 10}
+]
