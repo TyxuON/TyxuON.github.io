@@ -78,7 +78,6 @@
         const pw = JSON.parse(localStorage.getItem('pw')) || [];
         let nickname = document.querySelector(".case").value;
         let password = document.querySelector(".password").value;
-        alert(pw)
         console.log(password)
         mauvais.textContent = "...";
         submit.style.backgroundColor = "rgb(158, 158, 158)";
@@ -97,7 +96,6 @@
               }
             }
         if (good) {
-          alert('c bon')
           myName = nickname
           let storedName = nickname.textContent
           localStorage.setItem("nom", myName)
